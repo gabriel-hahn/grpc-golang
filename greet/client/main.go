@@ -1,8 +1,10 @@
 package main
 
 import (
+	"context"
 	"log"
 
+	pb "github.com/gabriel-hahn/grpc-golang/greet/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
@@ -16,5 +18,12 @@ func main() {
 	}
 	defer conn.Close()
 
+	c := pb.NewGreetServiceClient(conn)
 
+	res, err := c.Greet(context.Background(), &pb.GreetRequest{FirstName: "Gabriel"})
+	if err != nil {
+		log.Printf("Error on call Greet service: %v", err)
+	}
+
+	log.Print(res.Result)
 }
