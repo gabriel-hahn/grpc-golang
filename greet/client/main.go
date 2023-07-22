@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"log"
 
 	pb "github.com/gabriel-hahn/grpc-golang/greet/proto"
@@ -20,10 +19,6 @@ func main() {
 
 	c := pb.NewGreetServiceClient(conn)
 
-	res, err := c.Greet(context.Background(), &pb.GreetRequest{FirstName: "Gabriel"})
-	if err != nil {
-		log.Printf("Error on call Greet service: %v", err)
-	}
-
-	log.Print(res.Result)
+	// Greet(c)
+	GreetManyTimes(c)
 }

@@ -23,7 +23,7 @@ func main() {
 	numbers := []int32{1, 44, 23}
 	res, err := c.Sum(context.Background(), &pb.CalculatorRequest{ Number: numbers })
 	if err != nil {
-		log.Printf("Error on call Greet service: %v", err)
+		log.Fatalf("Error on call Greet service: %v", err)
 	}
 
 	log.Print(res.Result)
