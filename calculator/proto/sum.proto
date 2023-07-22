@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "github.com/gabriel-hahn/grpc-golang/calculator/proto";
+
+message CalculatorRequest {
+    repeated int32 number = 1;
+}
+
+message CalculatorResponse {
+    int32 result = 1;
+}
