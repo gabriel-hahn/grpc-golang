@@ -9,7 +9,7 @@ import (
 )
 
 func GreetManyTimes(c pb.GreetServiceClient) {
-	streamRes, err := c.GreetManyTimes(context.Background(), &pb.GreetRequest{ FirstName: "Gabriel" })
+	streamRes, err := c.GreetManyTimes(context.Background(), &pb.GreetRequest{FirstName: "Gabriel"})
 
 	if err != nil {
 		log.Fatalf("Error on call Greet service: %v", err)
@@ -18,11 +18,12 @@ func GreetManyTimes(c pb.GreetServiceClient) {
 	for {
 		msg, err := streamRes.Recv()
 		if err == io.EOF {
-			break;
+			break
 		}
 
 		if err != nil {
 			log.Fatalf("Error while reading the stream: %v", err)
+			break
 		}
 
 		log.Printf("GreetManyTimes: %s\n", msg.Result)
