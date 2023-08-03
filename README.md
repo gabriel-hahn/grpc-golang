@@ -1,2 +1,3 @@
 # grpc-golang
-A Golang project using gRPC
+
+A Golang repository with some study projects using gRPC
