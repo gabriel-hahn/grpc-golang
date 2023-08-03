@@ -20,12 +20,7 @@ type Server struct {
 }
 
 func main() {
-	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://root:root@localhost:27017/"))
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	err = client.Connect(context.Background())
+	client, err := mongo.Connect(context.Background(), options.Client().ApplyURI("mongodb://root:root@localhost:27017/"))
 	if err != nil {
 		log.Fatal(err)
 	}
