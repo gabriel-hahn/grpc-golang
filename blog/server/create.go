@@ -11,7 +11,7 @@ import (
 )
 
 func (s *Server) CreateBlog(ctx context.Context, in *pb.Blog) (*pb.BlogId, error) {
-	data := BlogItem{
+	data := &BlogItem{
 		AuthorId: in.AuthorId,
 		Title:    in.Title,
 		Content:  in.Content,
