@@ -22,5 +22,6 @@ func main() {
 	// createBlog(c)
 	// readBlog(c, "id")
 	// updateBlog(c, "id")
-	listBlog(c)
+	// listBlog(c)
+	deleteBlog(c, "id")
 }
