@@ -9,7 +9,8 @@ import (
 
 func updateBlog(c pb.BlogServiceClient, id string) {
 	blog := &pb.Blog{
-		AuthorId: "ana",
+		Id:       id,
+		AuthorId: "ana 2",
 		Title:    "My Medium Post Updated",
 		Content:  "Content of the medium post updated",
 	}
