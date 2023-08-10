@@ -19,7 +19,7 @@ func (s *Server) CreateBlog(ctx context.Context, in *pb.Blog) (*pb.BlogId, error
 
 	res, err := collection.InsertOne(ctx, data)
 	if err != nil {
-		return nil, status.Errorf(codes.Internal, fmt.Sprintf("Internal error: %v\n", err))
+		return nil, status.Errorf(codes.Internal, fmt.Sprintf("Internal error: %v", err))
 	}
 
 	oid, ok := res.InsertedID.(primitive.ObjectID)

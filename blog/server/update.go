@@ -26,7 +26,7 @@ func (s *Server) UpdateBlog(ctx context.Context, in *pb.Blog) (*emptypb.Empty, e
 
 	res, err := collection.UpdateOne(ctx, bson.M{"_id": oid}, bson.M{"$set": data})
 	if err != nil {
-		return nil, status.Errorf(codes.Internal, fmt.Sprintf("Internal error: %v\n", err))
+		return nil, status.Errorf(codes.Internal, fmt.Sprintf("Internal error: %v", err))
 	}
 
 	if res.MatchedCount == 0 {
